@@ -1,6 +1,6 @@
 <?php
 
-$str = '';
+$tweet = '';
 $tweets = array();
 
 if(isset($_POST['max_id'])) {
@@ -9,8 +9,8 @@ if(isset($_POST['max_id'])) {
 	$params['count']  = 30;
 
 	for ($i=0; $i < $params['count']; $i++) {
-		$str = '<li id="tweet-' . ($params['max_id']+$i) . '">tweet-' . ($params['max_id']+$i) . '</li>';
-		array_push($tweets, $str);
+		$tweet = '<li id="tweet-' . ($params['max_id']+$i) . '">tweet-' . ($params['max_id']+$i) . '</li>';
+		array_push($tweets, $tweet);
 	}
 
 	if ($params['max_id'] != 1) {
@@ -22,8 +22,5 @@ if(isset($_POST['max_id'])) {
 
 }
 
-/*foreach ($tweets as $tweet) {
-	echo $tweet;
-}*/
 header('Content-Type: application/json');
 echo json_encode(compact(('tweets')));
